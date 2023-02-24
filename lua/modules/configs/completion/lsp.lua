@@ -70,6 +70,12 @@ return function()
 			nvim_lsp.bashls.setup(final_opts)
 		end,
 
+		pyright = function()
+			local _opts = require("completion.servers.pyright")
+			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
+			nvim_lsp.pyright.setup(final_opts)
+		end,
+
 		clangd = function()
 			local _capabilities = vim.tbl_deep_extend("keep", { offsetEncoding = { "utf-16", "utf-8" } }, capabilities)
 			local _opts = require("completion.servers.clangd")

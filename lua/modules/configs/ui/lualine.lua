@@ -11,31 +11,6 @@ return function()
 		return ok and m.waiting and icons.misc.EscapeST or ""
 	end
 
-	local _cache = { context = "", bufnr = -1 }
-	local function lspsaga_symbols()
-		local exclude = {
-			["terminal"] = true,
-			["toggleterm"] = true,
-			["prompt"] = true,
-			["NvimTree"] = true,
-			["help"] = true,
-		}
-		if vim.api.nvim_win_get_config(0).zindex or exclude[vim.bo.filetype] then
-			return "" -- Excluded filetypes
-		else
-			local currbuf = vim.api.nvim_get_current_buf()
-			local ok, lspsaga = pcall(require, "lspsaga.symbolwinbar")
-			if ok and lspsaga:get_winbar() ~= nil then
-				_cache.context = lspsaga:get_winbar()
-				_cache.bufnr = currbuf
-			elseif _cache.bufnr ~= currbuf then
-				_cache.context = "" -- Reset [invalid] cache (usually from another buffer)
-			end
-
-			return _cache.context
-		end
-	end
-
 	local function diff_source()
 		local gitsigns = vim.b.gitsigns_status_dict
 		if gitsigns then
@@ -48,15 +23,8 @@ return function()
 	end
 
 	local function get_cwd()
-		local cwd = vim.fn.getcwd()
-		local is_windows = require("core.global").is_windows
-		if not is_windows then
-			local home = require("core.global").home
-			if cwd:find(home, 1, true) == 1 then
-				cwd = "~" .. cwd:sub(#home + 1)
-			end
-		end
-		return icons.ui.RootFolderOpened .. cwd
+		local cwd = vim.fn.expand("%")
+		return cwd
 	end
 
 	local mini_sections = {
@@ -66,10 +34,6 @@ return function()
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
-	}
-	local outline = {
-		sections = mini_sections,
-		filetypes = { "lspsagaoutline" },
 	}
 	local diffview = {
 		sections = mini_sections,
@@ -104,7 +68,7 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "catppuccin",
+			theme = "tokyonight",
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },
@@ -112,7 +76,7 @@ return function()
 		sections = {
 			lualine_a = { { "mode" } },
 			lualine_b = { { "branch" }, { "diff", source = diff_source } },
-			lualine_c = { lspsaga_symbols },
+			lualine_c = {},
 			lualine_x = {
 				{ escape_status },
 				{
@@ -157,7 +121,6 @@ return function()
 			"nvim-dap-ui",
 			"toggleterm",
 			"fugitive",
-			outline,
 			diffview,
 		},
 	})

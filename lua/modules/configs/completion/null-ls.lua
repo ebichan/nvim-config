@@ -23,6 +23,9 @@ return function()
 		black = function()
 			null_reg(btnf.black.with({ extra_args = { "--fast" } }))
 		end,
+		isort = function()
+			null_reg(btnf.isort.with({}))
+		end,
 		markdownlint = function()
 			null_reg(btnf.markdownlint)
 			null_reg(btnd.markdownlint.with({ extra_args = { "--disable MD033" } }))

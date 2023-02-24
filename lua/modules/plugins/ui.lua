@@ -10,6 +10,11 @@ ui["akinsho/bufferline.nvim"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.bufferline"),
 }
+ui["folke/tokyonight.nvim"] = {
+	lazy = false,
+	as = "tokyonight",
+	config = require("ui.tokyonight")
+}
 ui["catppuccin/nvim"] = {
 	lazy = false,
 	name = "catppuccin",
@@ -43,11 +48,6 @@ ui["zbirenbaum/neodim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("ui.neodim"),
-}
-ui["karb94/neoscroll.nvim"] = {
-	lazy = true,
-	event = "BufReadPost",
-	config = require("ui.neoscroll"),
 }
 ui["shaunsingh/nord.nvim"] = {
 	lazy = true,
