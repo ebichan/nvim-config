@@ -115,5 +115,15 @@ tool["mfussenegger/nvim-dap"] = {
 		},
 	},
 }
+----------------------------------------------------------------------
+--                           Additional plugs                       --
+----------------------------------------------------------------------
+-- auto docstring generator
+tool["danymat/neogen"] = {
+	lazy = true,
+	cmd = { "Neogen" },
+	dependencies = "nvim-treesitter/nvim-treesitter",
+	config = require("tool.neogen"),
+}
 
 return tool

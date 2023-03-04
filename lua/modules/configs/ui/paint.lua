@@ -10,11 +10,11 @@ return function()
 				pattern = "%s*%-%-%-%s*(@%w+)",
 				hl = "Constant",
 			},
-			{
-				filter = { filetype = "python" },
-				pattern = "%s*(%w+:)",
-				hl = "Constant",
-			},
+			-- {
+			-- 	filter = { filetype = "python" },
+			-- 	pattern = "%s*(%w+:)",
+			-- 	hl = "Constant",
+			-- },
 		},
 	})
 end

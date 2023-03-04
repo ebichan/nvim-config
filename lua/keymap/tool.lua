@@ -7,8 +7,6 @@ require("keymap.helpers")
 
 local plug_map = {
 	-- Plugin: vim-fugitive
-	["n|gps"] = map_cr("G push"):with_noremap():with_silent():with_desc("git: Push"),
-	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent():with_desc("git: Pull"),
 	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent():with_desc("git: Open git-fugitive"),
 
 	-- Plugin: nvim-tree
@@ -213,6 +211,11 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Open REPL"),
+	-- Plugin: neogen
+	["n|<leader>ng"] = map_cr(":lua require('neogen').generate()")
+		:with_noremap()
+		:with_silent()
+		:with_desc("tool: Generate docstring"),
 }
 
 bind.nvim_load_mapping(plug_map)

@@ -34,6 +34,7 @@ return function()
 			end,
 			additional_vim_regex_highlighting = { "c", "cpp" },
 		},
+		indent = { enable = true, disable = { "python" } },
 		textobjects = {
 			select = {
 				enable = true,
