@@ -58,10 +58,6 @@ editor["RRethy/vim-illuminate"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.vim-illuminate"),
 }
-editor["luukvbaal/stabilize.nvim"] = {
-	lazy = true,
-	event = "BufReadPost",
-}
 editor["romainl/vim-cool"] = {
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
@@ -86,6 +82,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	config = require("editor.treesitter"),
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
+		{ "nvim-treesitter/nvim-treesitter-context" },
 		{ "mrjones2014/nvim-ts-rainbow" },
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-treehopper" },
