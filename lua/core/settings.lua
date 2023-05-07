@@ -73,7 +73,7 @@ settings["lsp_deps"] = {
 	"html",
 	"jsonls",
 	"lua_ls",
-	"jedi_language_server",
+	"pyright",
 	-- "gopls",
 }
 
