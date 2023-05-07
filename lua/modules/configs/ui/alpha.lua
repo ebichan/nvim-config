@@ -1,7 +1,7 @@
 return function()
 	local alpha = require("alpha")
 	local dashboard = require("alpha.themes.dashboard")
-	require("modules.utils").gen_alpha_hl()
+	-- require("modules.utils").gen_alpha_hl()
 
 	dashboard.section.header.val = {
 		[[⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],

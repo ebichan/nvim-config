@@ -68,7 +68,7 @@ return function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "tokyonight",
+			theme = vim.g.color_names,
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },
