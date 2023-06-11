@@ -15,8 +15,9 @@ ui["folke/tokyonight.nvim"] = {
 	as = "tokyonight",
 	config = require("ui.tokyonight")
 }
-ui["catppuccin/nvim"] = {
+ui["Jint-lzxy/nvim"] = {
 	lazy = false,
+	branch = "refactor/syntax-highlighting",
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
 }
@@ -26,6 +27,7 @@ ui["sainnhe/edge"] = {
 }
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
+	branch = "legacy",
 	event = "LspAttach",
 	config = require("ui.fidget"),
 }
