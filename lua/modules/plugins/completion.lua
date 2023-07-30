@@ -2,13 +2,13 @@ local completion = {}
 
 completion["neovim/nvim-lspconfig"] = {
 	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+	event = { "CursorHold", "CursorHoldI" },
 	config = require("completion.lsp"),
 	dependencies = {
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
 		{
-			"ray-x/lsp_signature.nvim",
+			"Jint-lzxy/lsp_signature.nvim",
 			config = require("completion.lsp-signature"),
 		},
 	},

@@ -164,7 +164,7 @@ return function()
 
 		lsp = {
 			function()
-				local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+				local buf_ft = vim.api.nvim_get_option_value("filetype", { scope = "local" })
 				local clients = vim.lsp.get_active_clients()
 				local lsp_lists = {}
 				local available_servers = {}
@@ -202,14 +202,14 @@ return function()
 					return venv
 				end
 
-				if vim.api.nvim_buf_get_option(0, "filetype") == "python" then
+				if vim.api.nvim_get_option_value("filetype", { scope = "local" }) == "python" then
 					local venv = os.getenv("CONDA_DEFAULT_ENV")
 					if venv then
-						return string.format("%s", env_cleanup(venv))
+						return icons.misc.PyEnv .. env_cleanup(venv)
 					end
 					venv = os.getenv("VIRTUAL_ENV")
 					if venv then
-						return string.format("%s", env_cleanup(venv))
+						return icons.misc.PyEnv .. env_cleanup(venv)
 					end
 				end
 				return ""
@@ -220,7 +220,7 @@ return function()
 
 		tabwidth = {
 			function()
-				return icons.ui.Tab .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+				return icons.ui.Tab .. vim.api.nvim_get_option_value("shiftwidth", { scope = "local" })
 			end,
 			padding = 1,
 		},
